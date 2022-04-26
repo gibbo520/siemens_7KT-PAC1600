@@ -63,6 +63,18 @@ elif what == "power.l2":
 elif what == "power.l3": 
     print(instrument.read_long(0x0018,3,True)/100)
 
+elif what == "power_factor.average":
+        print(instrument.read_long(0x0040,3,True)/10000)
+
+elif what == "power_factor.l1":
+        print(instrument.read_long(0x0026,3,True)/10000)
+
+elif what == "power_factor.l2":
+            print(instrument.read_long(0x0028,3,True)/10000)
+
+elif what == "power_factor.l3":
+            print(instrument.read_long(0x002A,3,True)/10000)
+
 elif what == "": 
     #Voltage of fase L1-L2-L3
     print("voltage.fase_average:",instrument.read_long(0x0034,3,False)/100)
@@ -85,6 +97,10 @@ elif what == "":
     print("power.l1:",instrument.read_long(0x0014,3,True)/100)
     print("power.l2:",instrument.read_long(0x0016,3,True)/100)
     print("power.l3:",instrument.read_long(0x0018,3,True)/100)
-
+    #Power Factor
+    print("power_factor.average:",instrument.read_long(0x0040,3,True)/10000)
+    print("power_factor.l1:",instrument.read_long(0x0026,3,True)/10000)
+    print("power_factor.l2:",instrument.read_long(0x0028,3,True)/10000)
+    print("power_factor.l3:",instrument.read_long(0x002A,3,True)/10000)
 else: 
     print("NaN")
